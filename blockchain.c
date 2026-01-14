@@ -2,21 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-Block *create_block(const char *data, int *size) {
-  Block *block = malloc(sizeof(Block));
-  if (!block) {
-    return NULL;
-  }
-  strncpy(block->data, data, strlen(data));
-  block->data[255] = '\0';
-  block->index = *size;
-  block->timestamp = time(NULL);
-
-
-
-  return block;
-}
-
 int add_block(Block *chain[], int *size, const char *data) {
   Block *new_block = (Block*)malloc(sizeof(Block));
   if (!new_block) {
